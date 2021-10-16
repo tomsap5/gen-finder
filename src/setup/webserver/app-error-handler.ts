@@ -13,7 +13,9 @@ export function appErrorHandler(
   if (!err) {
     return next();
   }
-  console.error(err.message, err.stack);
+  if (err.status?.toString().startsWith("4")) {
+    console.error(err.message, err.stack);
+  }
 
   if (isProduction && err.status >= 500) {
     return res.status(err.statusCode).send(GENERAL_ERROR_MSG);
