@@ -1,0 +1,9 @@
+node_modules
+build
+.idea
+.git
+.env
+test
+jest.config.ts
+heroku.yml
+
