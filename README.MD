@@ -1,7 +1,7 @@
 # Gen Finder
 
 ## Limitations
-Due to the limited time I had for this project, the app has the following limitations that should have been addressed in a real world app, given sufficient time.
+Due to the limited time I had for this project, the app has the following limitations that should have been addressed in a real world app.
 #### Memory
 This app generates an in-memory tree structure (see UniqDescendantsTree) to allow finding a given gen in a reasonable time (O(N) where N is the length of the given gen).<br/>
 The memory used to hold this tree is smaller compared to holding the entire file.<br/>
