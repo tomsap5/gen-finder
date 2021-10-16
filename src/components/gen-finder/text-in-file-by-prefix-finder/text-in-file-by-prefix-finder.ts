@@ -10,7 +10,14 @@ export class TextInFileByPrefixFinder {
   }
 
   async initializeRead(filePath: string) {
+    if (this.didFinishReadingFile) {
+      return;
+    }
     this.suffixTree = await readUniqueTreeByPrefix({ prefix: this.prefix, filePath });
+  }
+
+  async clearSuffixTree() {
+    this.suffixTree = null;
   }
 
   isTextFoundInFile(text: string): boolean {

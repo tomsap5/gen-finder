@@ -3,6 +3,7 @@ import { requestGen } from "./common";
 import {
   GEN_PREFIX,
   init as initGenFinderService,
+  genFinder,
 } from "../../../src/components/gen-finder/gen-finder-service";
 import path from "path";
 import os from "os";
@@ -24,6 +25,10 @@ describe(`Gen finder - invalid inputs`, function () {
   afterAll(async function () {
     testWebServer.close();
     await fs.unlink(testFilePath);
+  });
+
+  afterEach(async function () {
+    await genFinder.clearSuffixTree();
   });
 
   test("should find gen in between gens", async () => {
@@ -65,7 +70,6 @@ describe(`Gen finder - invalid inputs`, function () {
   });
 
   test("should return bad request status for missing gen prefix even if file not read", async () => {
-    // await initServiceWithFile();
     const status = await requestGen(`${EOF_SUFFIX}`, testWebServer);
     expect(status).toEqual(400);
   });

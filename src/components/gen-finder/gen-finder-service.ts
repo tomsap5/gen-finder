@@ -1,4 +1,4 @@
-import { TextInFileByPrefixFinder } from "../text-in-file-by-prefix-finder/text-in-file-by-prefix-finder";
+import { TextInFileByPrefixFinder } from "./text-in-file-by-prefix-finder/text-in-file-by-prefix-finder";
 import BadRequestError from "../global-errors/bad-request-error";
 import ServiceUnavailableError from "../global-errors/service-unavailable-error";
 
