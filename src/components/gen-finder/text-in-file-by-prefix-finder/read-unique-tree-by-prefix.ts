@@ -13,6 +13,7 @@ export async function readUniqueTreeByPrefix({
   let prefixSequence = "";
   let prefixIndex = 0;
   let uniqDescendantsTree = treeRoot;
+  console.log(`initializing read from ${filePath}`);
   return new Promise((resolve, reject) => {
     fs.createReadStream(filePath)
       .pipe(es.split())
@@ -38,7 +39,7 @@ export async function readUniqueTreeByPrefix({
             reject(err);
           })
           .on("end", function () {
-            console.log("Read entire file.");
+            console.log("Finished reading entire file");
             treeRoot.clearSpecificPath([...prefix]);
             resolve(treeRoot);
           })
