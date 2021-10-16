@@ -1,7 +1,8 @@
 version: "3.7"
 services:
-  coins-price-compare:
+  gen-finder:
     build: .
     ports:
       - "3000:3000"
-    env_file: .env
+    environment:
+      - DNA_FILE_PATH=/app/example-dna-file.txt

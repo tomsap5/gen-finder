@@ -13,7 +13,7 @@ export function appErrorHandler(
   if (!err) {
     return next();
   }
-  if (err.status?.toString().startsWith("4")) {
+  if (!err.status?.toString().startsWith("4")) {
     console.error(err.message, err.stack);
   }
 
